@@ -1,15 +1,11 @@
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-async function conectDB(){
+export default async function conectDB(){
     try{
-        await mongoose.connect(`mongodb://localhost:27017/OFICINA`);
-        console.log(`Conectado ao mongo! Visualize os dados em "OFICINA".`);
+        await mongoose.connect(`mongodb+srv://${process.env.DB_URI}`);
+        console.log(`Conectado ao atlas!`);
     }catch(erro){
         console.log(erro);
     };
 };
-
-conectDB();
-
-module.exports = mongoose;
