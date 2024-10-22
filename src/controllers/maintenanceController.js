@@ -1,7 +1,7 @@
 
-const Maintenance = require('../models/maintenanceModel.js');
+import Maintenance from '../models/maintenanceModel.js';
 
-async function store(req,res){
+export async function store(req,res){
     try{
         const content = await Maintenance.create(req.body);
         res.status(201).send({criado:content});
@@ -10,7 +10,7 @@ async function store(req,res){
     };
 };
 
-async function index(req,res){
+export async function index(req,res){
     try{
         const content = await Maintenance.find().exec();
         res.status(201).send(content);
@@ -19,7 +19,7 @@ async function index(req,res){
     };
 };
 
-async function update(req,res){
+export async function update(req,res){
     try{
         const content = await Maintenance.findByIdAndUpdate(req.params.id,req.body).exec();
         res.status(201).send({atualizado:content});
@@ -28,7 +28,7 @@ async function update(req,res){
     };
 };
 
-async function destroy(req,res){
+export async function destroy(req,res){
     try{
         const content = await Maintenance.findByIdAndDelete(req.params.id).exec();
         res.status(201).send({deletado:content});
@@ -36,5 +36,3 @@ async function destroy(req,res){
         res.status(400).send({erro:erro})
     };
 };
-
-module.exports = {store,index,update,destroy};

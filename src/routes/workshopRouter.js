@@ -1,10 +1,12 @@
 
-const Router = require('express').Router();
-const {store,index,update,destroy} = require('../controllers/workshopController.js');
+import {Router} from 'express';
+import {store,index,update,destroy} from '../controllers/workshopController.js';
 
-Router.post('/',store);
-Router.get('/',index);
-Router.put('/:id',update);
-Router.delete('/:id',destroy);
+const workshopRouter = Router();
 
-module.exports = Router;
+workshopRouter.post('/', store);
+workshopRouter.get('/', index);
+workshopRouter.put('/:id', update);
+workshopRouter.delete('/:id', destroy);
+
+export default workshopRouter;

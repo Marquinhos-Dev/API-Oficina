@@ -1,10 +1,12 @@
 
-const Router = require('express').Router();
-const {store,index,update,destroy} = require('../controllers/vehicleController.js');
+import {Router} from "express";
+import {store,index,update,destroy} from "../controllers/vehicleController.js";
 
-Router.post('/',store);
-Router.get('/',index);
-Router.put('/:id',update);
-Router.delete('/:id',destroy);
+const vehicleRouter = Router()
 
-module.exports = Router;
+vehicleRouter.post('/',store);
+vehicleRouter.get('/',index);
+vehicleRouter.put('/:id',update);
+vehicleRouter.delete('/:id',destroy);
+
+export default vehicleRouter;

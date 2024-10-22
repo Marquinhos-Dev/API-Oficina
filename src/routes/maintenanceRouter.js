@@ -1,10 +1,12 @@
 
-const Router = require('express').Router();
-const {store,index,update,destroy} = require('../controllers/maintenanceController');
+import {Router} from "express";
+import {store,index,update,destroy} from "../controllers/maintenanceController.js";
 
-Router.post('/',store);
-Router.get('/',index);
-Router.put('/:id',update);
-Router.delete('/:id',destroy);
+const maintenanceRouter = Router();
 
-module.exports = Router;
+maintenanceRouter.post('/',store);
+maintenanceRouter.get('/',index);
+maintenanceRouter.put('/:id',update);
+maintenanceRouter.delete('/:id',destroy);
+
+export default maintenanceRouter;

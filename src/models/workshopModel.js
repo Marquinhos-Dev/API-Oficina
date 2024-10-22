@@ -1,12 +1,10 @@
 
-const DB = require('../configs/DB.js');
+import { Schema, model } from 'mongoose'
 
-const workshopSchema = new DB.Schema({
+const workshopSchema = new Schema({
     name:{type:String,required:true},
     address:{type:String,required:true},
     specialties:{type:Array,required:true}
 });
 
-const Workshop = new DB.model('Workshops',workshopSchema);
-
-module.exports = Workshop;
+export default model('Workshops',workshopSchema);

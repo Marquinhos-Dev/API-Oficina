@@ -1,7 +1,7 @@
 
-const DB = require('../configs/DB.js');
+import { Schema, model } from 'mongoose'
 
-const vehicleSchema = new DB.Schema({
+const vehicleSchema = new Schema({
     plate:{type:String,required:true},
     model:{type:String,required:true},
     year:{type:Number,required:true},
@@ -9,6 +9,4 @@ const vehicleSchema = new DB.Schema({
     maintenances:{type:String,required:true}
 });
 
-const Vehicle = new DB.model('Vehicles',vehicleSchema);
-
-module.exports = Vehicle;
+export default model('Vehicles',vehicleSchema);
